@@ -9,28 +9,7 @@ import {
   ScrollView,
 } from 'react-native';
 
-//Ari e butang ang listing data
 export default function App() {
-  const items = [
-    { id: '1', image: 'https://via.placeholder.com/150', label: 'WALLET', location: 'Lahug, Cebu City'},
-    { id: '2', image: 'https://via.placeholder.com/150', label: 'IPHONE', location: 'Lahug, Cebu City'},
-    { id: '3', image: 'https://via.placeholder.com/150', label: 'ID', location: 'Lahug, Cebu City'},
-    { id: '4', image: 'https://via.placeholder.com/150', label: 'WALLET', location: 'Lahug, Cebu City'},
-    { id: '5', image: 'https://via.placeholder.com/150', label: 'KEYS', location: 'Lahug, Cebu City'},
-    { id: '6', image: 'https://via.placeholder.com/150', label: 'PLATE NO.', location: 'Lahug, Cebu City'},
-    { id: '6', image: 'https://via.placeholder.com/150', label: 'PLATE NO.', location: 'Lahug, Cebu City'},
-    { id: '6', image: 'https://via.placeholder.com/150', label: 'PLATE NO.', location: 'Lahug, Cebu City'},
-    { id: '6', image: 'https://via.placeholder.com/150', label: 'PLATE NO.', location: 'Lahug, Cebu City'},
-  ];
-
-  //Listing Container, mao ni ang ma create if mag add ka ug listing
-  const renderItem = ({ item }) => (
-    <View style={styles.itemContainer}>
-      <Image source={{ uri: item.image }} style={styles.itemImage} />
-      <Text style={styles.itemLabel}>{item.label}</Text>
-      <Text style={styles.locationLabel}>{item.location}</Text>
-    </View>
-  );
 
   return (
         <View style={styles.container}>
@@ -56,30 +35,6 @@ export default function App() {
                 />
               </TouchableOpacity>
             </View>
-
-            <View style={styles.buttonsContainer}>
-              <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>+ Add Listing</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.button2}>
-                <Text style={styles.buttonText}>☰ Categories</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.locationBar}>
-              <Image
-                source={require('Pin_alt.png')}
-                style={styles.locationIcon}
-              />
-              <Text style={styles.location}>Cebu City, Cebu</Text>
-            </View>
-
-            <FlatList
-              data={items}
-              renderItem={renderItem}
-              keyExtractor={(item) => item.id}
-              numColumns={2}
-              contentContainerStyle={styles.itemsGrid}
-            />
           </ScrollView>
         </View>
   );
@@ -130,7 +85,7 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     flexDirection: 'row',
     gap: 10,
-    marginBottom: 50,
+    marginBottom: 10,
     justifyContent: 'center',
   },
   button: {
