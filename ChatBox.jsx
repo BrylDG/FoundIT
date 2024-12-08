@@ -45,7 +45,7 @@ const App = () => {
       ]}
     >
       {item.sender === "other" && (
-        <Image source={{ uri: item.image }} style={styles.image} />
+        <Image source={{ uri: item.image }} style={styles.accountImage} />
       )}
       <View style={styles.messageBubble}>
         <Text style={styles.messageText}>{item.text}</Text>
@@ -57,6 +57,18 @@ const App = () => {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
+        <Image
+          source={require('Logo.png')}
+          style={styles.image}
+        />
+        <View style={styles.headerIcons}>
+          <TouchableOpacity>
+            <Text style={styles.burgerIcon}>☰</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      <View style={styles.topBar}>
         <TouchableOpacity>
           <Icon name="arrow-back" size={24} color="#fff" />
         </TouchableOpacity>
@@ -64,12 +76,9 @@ const App = () => {
           <Text style={styles.headerTitle}>Mark Jess Enfermo</Text>
           <Text style={styles.headerSubtitle}>LOST ITEM NAME</Text>
         </View>
-        <TouchableOpacity>
-          <Icon name="menu" size={24} color="#fff" />
-        </TouchableOpacity>
       </View>
 
-      {/* Chat Messages */}
+      {/* Chat Messages */} 
       <FlatList
         data={messages}
         renderItem={renderMessage}
@@ -102,12 +111,34 @@ const styles = StyleSheet.create({
     backgroundColor: "#e9f3ff",
   },
   header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingBottom: 10,
+    backgroundColor: '#007bff',
+  },
+  topBar: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    backgroundColor: "#007bff",
+    backgroundColor: "#073763",
     paddingHorizontal: 15,
     paddingVertical: 10,
+    marginBottom: 20,
+  },
+  image: {
+    width: 100,
+    height: 100,
+  },
+  headerIcons: {
+    flexDirection: 'row',
+    paddingTop: 60,
+  },
+  burgerIcon: {
+    fontSize: 30,
+    color: '#fff',
+    marginLeft: 20,
   },
   headerTextContainer: {
     flex: 1,
@@ -143,10 +174,10 @@ const styles = StyleSheet.create({
     marginLeft: 0,
     marginRight: 40,
   },
-  image: {
+  accountImage: {
     width: 40,
     height: 40,
-    borderRadius: 20,
+    borderRadius: 5,
     marginRight: 10,
   },
   messageBubble: {
